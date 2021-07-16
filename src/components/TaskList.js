@@ -1,5 +1,6 @@
 import React from "react";
 import Task from "./Task";
+import PropTypes from "prop-types";
 
 export default function TaskList({ loading, tasks, onPintask, onArchiveTask }) {
   const events = {
@@ -18,3 +19,14 @@ export default function TaskList({ loading, tasks, onPintask, onArchiveTask }) {
     </div>
   );
 }
+
+TaskList.propTypes = {
+  loading: PropTypes.bool,
+  tasks: PropTypes.arrayOf(Task.propTypes.task).isRequired,
+  onPintask: PropTypes.func,
+  onArchiveTask: PropTypes.func,
+};
+
+TaskList.defaultProps = {
+  loading: false,
+};
